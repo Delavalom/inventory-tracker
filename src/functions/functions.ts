@@ -1,11 +1,19 @@
 import { RECORDS } from "../data/constants";
-import { JsonData } from "../data/constants";
+import { Record } from "../data/constants";
 
-export const getInventory = async () => {
-  await console.log(RECORDS)
+export const getInventory = (): Record[] | undefined => {
+  return RECORDS;
 };
 
-export const updateInventory = async (id: JsonData['id']) => {
-  const getId = await RECORDS.map(item => item.id === id)
-  console.log(getId)
+export const createRecord = (id: Record["id"]) => {
+  const getId = RECORDS.map((item) => item.id === id);
+  console.log(getId);
+};
+export const updateRecord = (id: Record["id"]) => {
+  const getId = RECORDS.map((item) => item.id === id);
+  console.log(getId);
+};
+export const deleteRecord = (id: Record["id"]) => {
+  const getId = RECORDS.map((item) => item.id === id);
+  console.log(getId);
 };

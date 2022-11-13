@@ -1,22 +1,27 @@
-
+import { useEffect } from "react";
+import { getInventory } from "../functions/functions";
 
 const Table = () => {
+  const records = getInventory();
+
   return (
     <table>
-        <thead>
+      <thead>
         <tr>
-            <th>Name</th>
-            <th>Amount</th>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Amount</th>
         </tr>
-        </thead>
-        <tbody>
+      </thead>
+      <tbody>
         <tr>
-            <td>Papel</td>
-            <td>24</td>
+          <td>15</td>
+          <td>papel</td>
+          <td>25</td>
         </tr>
-        </tbody>
+      </tbody>
     </table>
-  )
-}
+  );
+};
 
-export default Table
+export default Table;

@@ -1,8 +1,8 @@
-import { JsonData } from "../data/constants";
+import { Record } from "../data/constants";
 
 interface ButtonTypes {
   title: string;
-  onClick(): void;
+  onClick?: () => void;
 }
 
 const Button = ({ title, onClick }: ButtonTypes) => {
