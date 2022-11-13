@@ -1,0 +1,17 @@
+[
+    {
+        "id": 14,
+        "name": "Papel",
+        "amount": 22
+    },
+    {
+        "id": 15,
+        "name": "Tijera",
+        "amount": 10
+    },
+    {
+        "id": 16,
+        "name": "Piedra",
+        "amount": 5
+    }
+]
