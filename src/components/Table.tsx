@@ -1,8 +1,6 @@
 import { useEffect } from "react";
-import { getInventory } from "../functions/functions";
 
 const Table = () => {
-  const records = getInventory();
 
   return (
     <table>

@@ -1,10 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import './App.css'
 import Button from './components/Button'
 import Modal from './components/Modal'
 import Table from './components/Table'
-import { Record } from './data/constants'
-import { getInventory, updateRecord } from './functions/functions'
 
 
 function App() {
