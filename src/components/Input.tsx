@@ -1,15 +1,30 @@
-import { SetStateAction } from "react";
+import { useRef } from "react";
 
 interface InputTypes {
-    placeholder: string;
-    type: string;
-    onInput: (e: any) => void;
+  placeholder: string;
+  type: string;
+  name?: string;
+  props(field: unknown): any
 }
 
-const Input = ({placeholder, type, onInput}: InputTypes) => {
+const Input = ({ placeholder, type, name, props }: InputTypes) => {
+  const inputRef = useRef(null)
+
+  const onInputChange = () => {
+    if (inputRef !== null) {
+      props(inputRef.current)
+    }
+  };
+
   return (
-    <input onInput={() => onInput} type={type} placeholder={placeholder} />
-  )
-}
+    <input
+      ref={inputRef}
+      name={name}
+      onInput={onInputChange}
+      type={type}
+      placeholder={placeholder}
+    />
+  );
+};
 
-export default Input
+export default Input;
