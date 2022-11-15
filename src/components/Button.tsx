@@ -1,5 +1,3 @@
-import { Record } from "../data/constants";
-
 interface ButtonTypes {
   title: string;
   onClick?: () => void;

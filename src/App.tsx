@@ -6,17 +6,22 @@ import Table from './components/Table'
 
 
 function App() {
-  const [openModal, setOpenModal] = useState(false)
+  const inventoryFunctions = ['Create', 'Update', 'Delete'];
+  const [myFunction, setMyFunction] = useState('');
+  const [openModal, setOpenModal] = useState(false);
 
   return (
     <main className="App">
-      {openModal && <Modal closeModal={setOpenModal} title={"Create"} />}
+      {openModal && <Modal displayInputOf={myFunction} closeModal={setOpenModal} title={"Create"} />}
       <h1>Inventory tracker</h1>
       <main className='mainContent'>
         <div className="buttonContainer">
-          <Button onClick={() => setOpenModal(true)} title='Create' />
-          <Button onClick={() => setOpenModal(true)} title='Update' />
-          <Button onClick={() => setOpenModal(true)} title='Delete' />
+          {inventoryFunctions.map(inventoryFunction => (
+            <Button key={inventoryFunction} onClick={() => {
+              setMyFunction(inventoryFunction)
+              setOpenModal(true)
+            }} title={inventoryFunction} />
+          ))}
         </div>
         <Table />
       </main>
