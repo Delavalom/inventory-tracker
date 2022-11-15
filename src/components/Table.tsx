@@ -1,6 +1,12 @@
 import { useEffect } from "react";
+import { Inventory } from "../functions/functions";
 
 const Table = () => {
+  
+  useEffect(() => {
+    const inventory = Inventory.getInstance()
+    inventory.getInventory()
+  }, [])
 
   return (
     <table>
@@ -20,6 +26,7 @@ const Table = () => {
       </tbody>
     </table>
   );
+
 };
 
 export default Table;

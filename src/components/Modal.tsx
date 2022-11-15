@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { SetStateAction, useState } from "react";
 import { Inventory } from "../functions/functions";
 import Button from "./Button";
 import Input from "./Input";
@@ -16,7 +16,7 @@ const Modal = ({ title, closeModal, displayInputOf}: ModalTyppe) => {
 
   const callFunction = () => {
     if(displayInputOf === "Delete") {
-      inventory.deleteRecord()
+      inventory.deleteRecord(15)
     }
   }
 
@@ -31,7 +31,10 @@ const Modal = ({ title, closeModal, displayInputOf}: ModalTyppe) => {
               <div className="inputContainer">
                 <Input onInput={(e) => setInput(e.target.value)} type="number" placeholder="ID" />
                 <Input onInput={(e) => setInput(e.target.value)} type="text" placeholder="Name" />
-                <Input onInput={(e) => setInput(e.target.value)} type="number" placeholder="Amount" />
+                <Input onInput={(e) => {
+                  setInput(e.target.value)
+                  console.log(input)
+                }} type="number" placeholder="Amount" />
               </div>
             )}
             {displayInputOf === 'Update' && (
@@ -46,7 +49,7 @@ const Modal = ({ title, closeModal, displayInputOf}: ModalTyppe) => {
               </div>
             )}
             <div className="buttonContainer">
-                <Button title={displayInputOf} />
+                <Button onClick={() => callFunction()} title={displayInputOf} />
             </div>
         </div>
     </section>

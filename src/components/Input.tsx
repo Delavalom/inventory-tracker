@@ -1,7 +1,9 @@
+import { SetStateAction } from "react";
+
 interface InputTypes {
     placeholder: string;
     type: string;
-    onInput: () => ;
+    onInput: (e: any) => void;
 }
 
 const Input = ({placeholder, type, onInput}: InputTypes) => {
