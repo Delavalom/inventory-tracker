@@ -16,15 +16,34 @@ export class Inventory implements Base {
   }
 
   getInventory() {
-    return this.inventory
+    return (
+      <table>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          {this.inventory.map(record => (
+            <tr key={record.id}>
+              <td>{record.id}</td>
+              <td>{record.name}</td>
+              <td>{record.amount}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    )
   }
-  createRecord(record: Record): Record[] {
-    const getId = RECORDS.some((item) => item.id === record.id);
+  createRecord(record: Record) {
+    const getId = this.inventory.some((item) => item.id === record.id);
     !getId ? this.inventory.push(record) : alert("ID already exist");
     return this.getInventory();
   }
   updateRecord(id: Record["id"], changes: UpdateRecord) {
-    const getId = RECORDS.some((item) => item.id === id);
+    const getId = this.inventory.some((item) => item.id === id);
     if (getId) {
       const index: number = RECORDS.findIndex((item) => item.id === id);
       this.inventory[index].amount = changes.amount;
@@ -33,8 +52,8 @@ export class Inventory implements Base {
     }
     return this.getInventory();
   }
-  deleteRecord(id: Record["id"]): Record[] {
-    const getId = RECORDS.some((item) => item.id === id);
+  deleteRecord(id: Record["id"]) {
+    const getId = this.inventory.some((item) => item.id === id);
     if (getId) {
       const index: number = RECORDS.findIndex((item) => item.id === id);
       this.inventory.splice(index, 1);
