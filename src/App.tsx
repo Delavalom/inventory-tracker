@@ -1,8 +1,6 @@
 import { useState } from 'react'
-import './App.css'
-import Button from './components/Button'
-import Modal from './components/Modal'
-
+import Button from './components/ui/Button'
+import Modal from './components/ui/Modal'
 import { Inventory } from './functions/functions'
 
 
@@ -15,9 +13,9 @@ function App() {
   return (
     <main className="App">
       {openModal && <Modal displayInputOf={myFunction} openModal={setOpenModal} title={"Create"} />}
-      <h1>Inventory tracker</h1>
-      <main className='mainContent'>
-        <div className="buttonContainer">
+      <h1 className='text-5xl tracking-widest'>Inventory Tracker</h1>
+      <main className='flex flex-col items-center h-screen w-full max-w-screen-lg mx-auto'>
+        <div className="w-full flex justify-around my-5">
           {inventoryFunctions.map(inventoryFunction => (
             <Button key={inventoryFunction} onClick={() => {
               setMyFunction(inventoryFunction)

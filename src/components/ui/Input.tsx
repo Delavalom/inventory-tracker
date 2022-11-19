@@ -17,7 +17,7 @@ const Input = ({ placeholder, type, name, props }: InputTypes) => {
   };
 
   return (
-    <input
+    <input className="text-white rounded-lg w-24 px-5 py-2 text-4 bg-indigo-900 transition-colors focus:outline-indigo-500 focus:ring-indigo-500"
       ref={inputRef}
       name={name}
       onInput={onInputChange}

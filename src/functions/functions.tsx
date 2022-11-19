@@ -1,6 +1,7 @@
-import RECORDS from "../data/records.json";
 import { Record } from "../data/constants";
 import { Base, UpdateRecord } from "../data/constants";
+import RECORDS from "../data/records.json";
+
 
 export class Inventory implements Base {
   static instance: Inventory | null = null;
@@ -16,20 +17,20 @@ export class Inventory implements Base {
 
   getInventory() {
     return (
-      <table>
+      <table className="w-full border-2">
         <thead>
           <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Amount</th>
+            <th className="border-2">Id</th>
+            <th className="border-2">Name</th>
+            <th className="border-2">Amount</th>
           </tr>
         </thead>
         <tbody>
           {RECORDS.map(record => (
             <tr key={record.id}>
-              <td>{record.id}</td>
-              <td>{record.name}</td>
-              <td>{record.amount}</td>
+              <td className="border-2">{record.id}</td>
+              <td className="border-2">{record.name}</td>
+              <td className="border-2">{record.amount}</td>
             </tr>
           ))}
         </tbody>

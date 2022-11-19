@@ -1,8 +1,7 @@
 import { useState } from "react";
-import { Inventory } from "../functions/functions";
+import { Inventory } from "../../functions/functions";
 import Button from "./Button";
 import Input from "./Input";
-import "./Modal.css";
 
 type ModalTyppe = {
   title: string;
@@ -31,14 +30,14 @@ const Modal = ({ title, openModal, displayInputOf }: ModalTyppe) => {
         inventory.createRecord({
           id: Number(input.id),
           name: input.name,
-          amount: Number(input.amount)
+          amount: Number(input.amount),
         });
       }
     }
     if (displayInputOf === "Update") {
       if (input.id) {
         inventory.updateRecord(Number(input.id), {
-          amount: Number(input.amount)
+          amount: Number(input.amount),
         });
       }
     }
@@ -48,20 +47,22 @@ const Modal = ({ title, openModal, displayInputOf }: ModalTyppe) => {
       }
     }
     openModal(false);
-    inventory.getInventory()
+    inventory.getInventory();
   };
 
   return (
-    <section className="modalBackground">
-      <div className="modalContainer">
-        <div className="headerContainer">
-          <h1>{title}</h1>
-          <button onClick={() => openModal(false)} className="closeBtn">
-            X
-          </button>
+    <section className="w-screen h-screen fixed flex justify-center items-center">
+      <div className="bg-black rounded-3xl px-5 py-4 min-w-[250px] flex flex-col justify-between h-1/4">
+        <div className="flex justify-between">
+          <h1 className="text-4xl">{title}</h1>
+          <Button
+            onClick={() => openModal(false)}
+            className="rounded-full w-12 h-11"
+            title="X"
+          />
         </div>
         {displayInputOf === "Create" && (
-          <div className="inputContainer">
+          <div className="flex justify-center items-center gap-2">
             <Input
               props={recievedData}
               name="id"
@@ -83,7 +84,7 @@ const Modal = ({ title, openModal, displayInputOf }: ModalTyppe) => {
           </div>
         )}
         {displayInputOf === "Update" && (
-          <div className="inputContainer">
+          <div className="flex justify-center items-center gap-2">
             <Input
               props={recievedData}
               name="id"
@@ -99,7 +100,7 @@ const Modal = ({ title, openModal, displayInputOf }: ModalTyppe) => {
           </div>
         )}
         {displayInputOf === "Delete" && (
-          <div className="inputContainer">
+          <div className="flex justify-center items-center gap-2">
             <Input
               props={recievedData}
               name="id"
@@ -108,9 +109,7 @@ const Modal = ({ title, openModal, displayInputOf }: ModalTyppe) => {
             />
           </div>
         )}
-        <div className="buttonContainer">
-          <Button onClick={() => callFunction()} title={displayInputOf} />
-        </div>
+        <Button onClick={() => callFunction()} title={displayInputOf} />
       </div>
     </section>
   );
