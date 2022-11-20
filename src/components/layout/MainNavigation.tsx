@@ -10,7 +10,7 @@ export const MainNavigation = ({ children }: Props) => {
   return (
     <>
       <Header></Header>
-      <main className="flex flex-col items-center h-screen w-full max-w-screen-lg mx-auto">{children}</main>
+      <main className="flex flex-col items-center h-full w-full max-w-screen-lg mx-auto">{children}</main>
       <Footer></Footer>
     </>
   );
