@@ -17,20 +17,20 @@ export class Inventory implements Base {
 
   getInventory() {
     return (
-      <table className="w-full border-2">
+      <table className="w-full border border-separate border-spacing-2 border-slate-500">
         <thead>
           <tr>
-            <th className="border-2">Id</th>
-            <th className="border-2">Name</th>
-            <th className="border-2">Amount</th>
+            <th className="border-2 border-slate-500">Id</th>
+            <th className="border-2 border-slate-500">Name</th>
+            <th className="border-2 border-slate-500">Amount</th>
           </tr>
         </thead>
         <tbody>
           {RECORDS.map(record => (
             <tr key={record.id}>
-              <td className="border-2">{record.id}</td>
-              <td className="border-2">{record.name}</td>
-              <td className="border-2">{record.amount}</td>
+              <td className="border-2 border-slate-500">{record.id}</td>
+              <td className="border-2 border-slate-500">{record.name}</td>
+              <td className="border-2 border-slate-500">{record.amount}</td>
             </tr>
           ))}
         </tbody>

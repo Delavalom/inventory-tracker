@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { Inventory } from "../../functions/functions";
-import Button from "./Button";
-import Input from "./Input";
+import { Button } from "./Button";
+import { Input } from "./Input";
 
-type ModalTyppe = {
+interface Props {
   title: string;
   openModal: (isClose: boolean) => void;
   displayInputOf: string;
-};
+}
 
-const Modal = ({ title, openModal, displayInputOf }: ModalTyppe) => {
+export const Modal = ({ title, openModal, displayInputOf }: Props) => {
   const inventory = Inventory.getInstance();
   const [input, setInput] = useState({
     id: 0,
@@ -114,4 +114,3 @@ const Modal = ({ title, openModal, displayInputOf }: ModalTyppe) => {
     </section>
   );
 };
-export default Modal;

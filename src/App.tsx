@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { ImportFileBtn } from "./components/ImportFileBtn";
 import { MainNavigation } from "./components/layout/MainNavigation";
-import Button from "./components/ui/Button";
-import Modal from "./components/ui/Modal";
+import { Button } from "./components/ui/Button";
+import { Modal } from "./components/ui/Modal";
+import { SearchBar } from "./components/ui/SearchBar";
 import { Inventory } from "./functions/functions";
 
 function App() {
@@ -19,21 +21,24 @@ function App() {
           title={"Create"}
         />
       )}
-      <main className="flex flex-col items-center h-screen w-full max-w-screen-lg mx-auto">
-        <div className="w-full flex justify-around my-5">
-          {inventoryFunctions.map((inventoryFunction) => (
-            <Button
-              key={inventoryFunction}
-              onClick={() => {
-                setMyFunction(inventoryFunction);
-                setOpenModal(true);
-              }}
-              title={inventoryFunction}
-            />
-          ))}
-        </div>
-        {inventory.getInventory()}
-      </main>
+      <section className="flex justify-between w-full max-w-2xl space-x-8">
+        <SearchBar />
+        <div className="h-full w-[1px] bg-indigo-500 mx-1" />
+        <ImportFileBtn />
+      </section>
+      <div className="w-full flex justify-around my-5">
+        {inventoryFunctions.map((inventoryFunction) => (
+          <Button
+            key={inventoryFunction}
+            onClick={() => {
+              setMyFunction(inventoryFunction);
+              setOpenModal(true);
+            }}
+            title={inventoryFunction}
+          />
+        ))}
+      </div>
+      {inventory.getInventory()}
     </MainNavigation>
   );
 }
