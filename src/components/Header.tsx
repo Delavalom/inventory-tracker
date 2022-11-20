@@ -1,3 +1,4 @@
+import { ThemeBtn } from "./ThemeBtn";
 import { Button } from "./ui/Button";
 
 interface Props {}
@@ -18,6 +19,7 @@ export const Header = () => {
             </li>
           ))}
         </ul>
+        <ThemeBtn />
         <Button
           className="bg-indigo-900  hover:bg-slate-900 hover:text-white snap center"
           title="Login"

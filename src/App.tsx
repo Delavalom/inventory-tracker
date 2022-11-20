@@ -18,7 +18,7 @@ function App() {
         <Modal
           displayInputOf={myFunction}
           openModal={setOpenModal}
-          title={"Create"}
+          title={myFunction}
         />
       )}
       <section className="flex justify-between w-full max-w-2xl space-x-8">

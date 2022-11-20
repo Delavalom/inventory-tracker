@@ -52,7 +52,7 @@ export const Modal = ({ title, openModal, displayInputOf }: Props) => {
 
   return (
     <section className="w-screen h-screen fixed flex justify-center items-center">
-      <div className="bg-black rounded-3xl px-5 py-4 min-w-[250px] flex flex-col justify-between h-1/4">
+      <div className="bg-slate-800 rounded-3xl px-5 py-4 min-w-[250px] flex flex-col justify-between h-1/4">
         <div className="flex justify-between">
           <h1 className="text-4xl">{title}</h1>
           <Button
