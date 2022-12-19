@@ -2,7 +2,6 @@ import { Record } from "../data/constants";
 import { Base, UpdateRecord } from "../data/constants";
 import RECORDS from "../data/records.json";
 
-
 export class Inventory implements Base {
   static instance: Inventory | null = null;
 
@@ -20,22 +19,34 @@ export class Inventory implements Base {
       <table className="w-full border border-separate border-spacing-2 border-slate-500">
         <thead>
           <tr>
-            <th className="text-slate-900 dark:text-slate-50 border-2 border-slate-500">Id</th>
-            <th className="text-slate-900 dark:text-slate-50 border-2 border-slate-500">Name</th>
-            <th className="text-slate-900 dark:text-slate-50 border-2 border-slate-500">Amount</th>
+            <th className="text-slate-900 dark:text-slate-50 border-2 border-slate-500">
+              Id
+            </th>
+            <th className="text-slate-900 dark:text-slate-50 border-2 border-slate-500">
+              Name
+            </th>
+            <th className="text-slate-900 dark:text-slate-50 border-2 border-slate-500">
+              Amount
+            </th>
           </tr>
         </thead>
         <tbody>
-          {RECORDS.map(record => (
+          {RECORDS.map((record) => (
             <tr key={record.id}>
-              <td className="text-slate-900 dark:text-slate-50 border-2 border-slate-500">{record.id}</td>
-              <td className="text-slate-900 dark:text-slate-50 border-2 border-slate-500">{record.name}</td>
-              <td className="text-slate-900 dark:text-slate-50 border-2 border-slate-500">{record.amount}</td>
+              <td className="text-slate-900 dark:text-slate-50 border-2 border-slate-500">
+                {record.id}
+              </td>
+              <td className="text-slate-900 dark:text-slate-50 border-2 border-slate-500">
+                {record.name}
+              </td>
+              <td className="text-slate-900 dark:text-slate-50 border-2 border-slate-500">
+                {record.amount}
+              </td>
             </tr>
           ))}
         </tbody>
       </table>
-    )
+    );
   }
   createRecord(record: Record) {
     const getId = RECORDS.some((item) => item.id === record.id);
