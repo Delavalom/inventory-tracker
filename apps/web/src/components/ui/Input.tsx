@@ -4,11 +4,11 @@ interface InputTypes {
   placeholder: string;
   type: string;
   name?: string;
-  props(field: unknown): any;
+  props(field: HTMLInputElement | null): void;
 }
 
 export const Input = ({ placeholder, type, name, props }: InputTypes) => {
-  const inputRef = useRef(null);
+  const inputRef = useRef<Parameters<InputTypes["props"]>[0]>(null);
 
   const onInputChange = () => {
     if (inputRef !== null) {

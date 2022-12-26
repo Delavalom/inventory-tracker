@@ -11,13 +11,9 @@ interface Props {
 
 export const Modal = ({ title, openModal, displayInputOf }: Props) => {
   const inventory = Inventory.getInstance();
-  const [input, setInput] = useState({
-    id: 0,
-    name: "",
-    amount: 0,
-  });
+  const [input, setInput] = useState<Record<string, string | number>>({});
 
-  const recievedData = (fields: any) => {
+  const recievedData = (fields: HTMLInputElement) => {
     setInput({
       ...input,
       [fields.name]: fields.value,
@@ -29,7 +25,7 @@ export const Modal = ({ title, openModal, displayInputOf }: Props) => {
       if (input.id) {
         inventory.createRecord({
           id: Number(input.id),
-          name: input.name,
+          name: input.name as string,
           amount: Number(input.amount),
         });
       }
